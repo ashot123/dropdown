@@ -23,11 +23,12 @@ public class DropDownChoicePage extends WebPage {
         add(new FeedbackPanel("feedback"));
 
         DropDownChoice<Day> listSites =
-                new DropDownChoice<Day>("sites", new Model<Day>(selectedDay), Arrays.asList(Day.values()));
+                new DropDownChoice<Day>("sites", new PropertyModel<Day>(this, "selectedDay"), Arrays.asList(Day.values()));
 
         Form<?> form = new Form<Void>("form") {
             @Override
             protected void onSubmit() {
+                //selectedDay =
                 info("Selected search engine : " + selectedDay);
             }
         };
